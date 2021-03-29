@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="companiesNames">
+        <item>UnitedHealth Group Incorporated</item>
+        <item>Goldman Sachs Group Inc.</item>
+        <item>Home Depot Inc.</item>
+        <item>Amgen Inc.</item>
+        <item>Boeing Company</item>
+        <item>Microsoft Corporation</item>
+        <item>Caterpillar Inc.</item>
+        <item>McDonald\'s Corporation</item>
+        <item>Honeywell International Inc.</item>
+        <item>Visa Inc. Class A</item>
+        <item>salesforce.com inc.</item>
+        <item>3M Company</item>
+        <item>Walt Disney Company</item>
+        <item>Johnson&amp;Johnson</item>
+        <item>JPMorgan Chase &amp; Co.</item>
+        <item>Travelers Companies Inc.</item>
+        <item>International Business Machines Corporation</item>
+        <item>Procter  Gamble Company</item>
+        <item>Walmart Inc.</item>
+        <item>NIKE Inc. Class B</item>
+        <item>Apple Inc.</item>
+        <item>Chevron Corporation</item>
+        <item>Intel Corporation</item>
+        <item>Dow Inc.</item>
+        <item>Verizon Communications Inc.</item>
+        <item>Coca-Cola Company</item>
+        <item>Cisco Systems Inc.</item>
+        <item>Walgreens Boots Alliance Inc.</item>
+    </string-array>
+    <string-array name="companiesSymbols">
+        <item>UNH</item>
+        <item>GS</item>
+        <item>HD</item>
+        <item>AMGN</item>
+        <item>BA</item>
+        <item>MSFT</item>
+        <item>CAT</item>
+        <item>MCD</item>
+        <item>HON</item>
+        <item>V</item>
+        <item>CRM</item>
+        <item>MMM</item>
+        <item>DIS</item>
+        <item>JNJ</item>
+        <item>JPM</item>
+        <item>TRV</item>
+        <item>IBM</item>
+        <item>PG</item>
+        <item>WMT</item>
+        <item>NKE</item>
+        <item>APPL</item>
+        <item>CVX</item>
+        <item>INTC</item>
+        <item>DOW</item>
+        <item>VZ</item>
+        <item>KO</item>
+        <item>CSCO</item>
+        <item>WBA</item>
+    </string-array>
+</resources>
