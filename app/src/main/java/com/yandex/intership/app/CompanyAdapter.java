@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.imageview.ShapeableImageView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,14 +59,13 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CompanyV
     }
 
     public class CompanyViewHolder extends RecyclerView.ViewHolder {
-        ImageView logo;
         TextView symbol;
         TextView name;
         ToggleButton addToFavoriteView;
         TextView price;
         TextView change;
         Company company;
-
+        ShapeableImageView logo;
         public CompanyViewHolder(View itemView) {
             super(itemView);
 
@@ -73,7 +74,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CompanyV
             addToFavoriteView = (ToggleButton) itemView.findViewById(R.id.addToFavorite);
             price = (TextView) itemView.findViewById(R.id.price);
             change = (TextView) itemView.findViewById(R.id.change);
-
+            logo = (ShapeableImageView)itemView.findViewById(R.id.logo);
             addToFavoriteView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -111,6 +112,8 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CompanyV
             if(company.getPriceChangeField().charAt(0)=='-')
                 this.change.setTextColor(Color.RED);
             else this.change.setTextColor(Color.parseColor("#007F16"));
+            int id = context.getResources().getIdentifier("com.yandex.intership.app:drawable/logo_"+this.company.getSymbol().toLowerCase(),null,null);
+            this.logo.setImageResource(id);
             if(Company.getCompanyFavoriteList().contains(this.company))
                 this.addToFavoriteView.setChecked(true);
             else{
