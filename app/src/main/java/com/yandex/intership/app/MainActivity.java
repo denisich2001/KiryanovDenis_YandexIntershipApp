@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         Company.updateAllPrices();
     }
 
-    public void onCheckboxClicked(View view) {
+    public void onAddToFavoriteClicked(View view) {
 
     }
 }

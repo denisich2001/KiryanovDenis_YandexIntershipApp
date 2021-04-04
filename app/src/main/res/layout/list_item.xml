@@ -39,21 +39,24 @@
         app:layout_constraintTop_toBottomOf="@+id/symbol"
          />
 
-    <CheckBox
+
+    <ToggleButton
         android:id="@+id/addToFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:button="@drawable/button_star"
-
-        android:onClick="onCheckboxClicked"
-        android:text=""
-        android:textColorHighlight="#FFFFFF"
-        android:textColorLink="#FFCA1C"
-        android:textSize="15sp"
-
-        app:layout_constraintBaseline_toBaselineOf="@id/symbol"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:onClick="onAddToFavoriteClicked"
+        android:layout_gravity="center_vertical"
+        android:background="#FFFFFF"
+        android:layout_marginTop="1dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:checked="false"
+        android:drawableTop="@drawable/button_star"
+        android:shadowColor="#FFFFFF"
+        android:textOff=""
+        android:textOn=""
         app:layout_constraintLeft_toRightOf="@id/symbol"
-        app:useMaterialThemeColors="true" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:id="@+id/price"

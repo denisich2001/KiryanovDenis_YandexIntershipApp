@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
@@ -59,7 +60,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CompanyV
         ImageView logo;
         TextView symbol;
         TextView name;
-        CheckBox addToFavoriteView;
+        ToggleButton addToFavoriteView;
         TextView price;
         TextView change;
         Company company;
@@ -67,11 +68,11 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CompanyV
         public CompanyViewHolder(View itemView) {
             super(itemView);
 
-            symbol = itemView.findViewById(R.id.symbol);
-            name = itemView.findViewById(R.id.name);
-            addToFavoriteView = itemView.findViewById(R.id.addToFavorite);
-            price = itemView.findViewById(R.id.price);
-            change = itemView.findViewById(R.id.change);
+            symbol = (TextView) itemView.findViewById(R.id.symbol);
+            name = (TextView) itemView.findViewById(R.id.name);
+            addToFavoriteView = (ToggleButton) itemView.findViewById(R.id.addToFavorite);
+            price = (TextView) itemView.findViewById(R.id.price);
+            change = (TextView) itemView.findViewById(R.id.change);
 
             addToFavoriteView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
