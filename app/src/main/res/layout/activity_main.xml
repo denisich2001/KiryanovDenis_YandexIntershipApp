@@ -9,10 +9,63 @@
     android:paddingVertical="20dp"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id ="@+id/companiesList"
-        android:layout_height="0dp"
+    <EditText
+        android:id="@+id/search_bar"
         android:layout_width="0dp"
+        android:layout_height="50dp"
+
+        android:background="@drawable/search_bar"
+        android:drawableLeft="@drawable/ic_search_black_24dp"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="Search..."
+        android:paddingLeft="16dp"
+
+
+        android:singleLine="true"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/headView"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:singleLine="false"
+        android:text="@string/head_main"
+        android:textColor="@color/black"
+
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar" />
+
+    <TextView
+        android:id="@+id/useFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+
+        android:onClick="onCheckboxClicked"
+        android:text="@string/favorite"
+
+        android:textSize="18sp"
+
+        app:layout_constraintBaseline_toBaselineOf="@id/headView"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintLeft_toRightOf="@id/headView"
+        app:layout_constraintStart_toEndOf="@id/headView"
+
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/companiesList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
 
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -20,36 +73,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headView"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/headView" />
 
-    <TextView
-        android:id="@+id/headView"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
 
-        app:layout_constraintBaseline_toBaselineOf="@id/useFavorite"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:singleLine="false"
-        android:text="@string/head_main"
-
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        />
-
-    <CheckBox
-        android:id="@+id/useFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onCheckboxClicked"
-        android:text="Избранное"
-
-        android:textSize="15sp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintLeft_toRightOf="@id/headView"
-        app:layout_constraintStart_toEndOf="@+id/headView"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView companiesListView;
     TextView headView;
-    CheckBox useFavorite;
+    TextView useFavorite;
 
     CompanyAdapter companyAdapter;
 
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         Company.setCompanyAdapter(companyAdapter);
         companyAdapter.notifyDataSetChanged();
 
-        useFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        /*useFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 companyAdapter.notifyDataSetChanged();
             }
-        });
+        });*/
     }
 
     private void loadData(){

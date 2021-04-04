@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">YandexIntershipApp</string>
-    <string name="head_main">Components of the Dow Jones</string>>
+    <string name="head_main">Dow Jones stocks</string>
+    <string name="favorite">Favorite</string>>
 </resources>
