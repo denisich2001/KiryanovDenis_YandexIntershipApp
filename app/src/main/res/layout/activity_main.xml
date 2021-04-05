@@ -9,7 +9,7 @@
     android:paddingVertical="20dp"
     tools:context=".MainActivity">
 
-    <EditText
+    <SearchView
         android:id="@+id/search_bar"
         android:layout_width="0dp"
         android:layout_height="50dp"
@@ -38,29 +38,9 @@
         android:singleLine="false"
         android:text="@string/head_main"
         android:textColor="@color/black"
-        android:onClick="onMainListClicked"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar" />
-
-    <TextView
-        android:id="@+id/useFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_bold"
-
-        android:onClick="onFavoriteListClicked"
-        android:text="@string/favorite"
-
-        android:textSize="18sp"
-
-        app:layout_constraintBaseline_toBaselineOf="@id/headView"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintLeft_toRightOf="@id/headView"
-        app:layout_constraintStart_toEndOf="@id/headView"
-
-
-        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/companiesList"

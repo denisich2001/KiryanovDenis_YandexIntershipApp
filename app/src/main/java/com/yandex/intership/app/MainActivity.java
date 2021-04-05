@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,21 +35,24 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView companiesListView;
     TextView headView;
-    TextView useFavorite;
+    //TextView useFavorite;
+    SearchView searchView;
+
+    //для проверки:
+    ArrayList<Integer> favoriteIds;
 
     CompanyAdapter companyAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //ПРОВЕРИТЬ СОЕДИНЕНИЕ, ЕСЛИ НЕТ - ПОПРОСИТЬ ВЫЙТИ
-
-        useFavorite = findViewById(R.id.useFavorite);
+        searchView = (SearchView) findViewById(R.id.search_bar);
+        //useFavorite = findViewById(R.id.useFavorite);
         headView = findViewById(R.id.headView);
         companiesListView = findViewById(R.id.companiesList);
-
+        this.favoriteIds = new ArrayList<>();
         Company.setContext(this);
 
         loadData();
@@ -57,31 +61,53 @@ public class MainActivity extends AppCompatActivity {
         companiesListView.setLayoutManager(layoutManager);
         companiesListView.setHasFixedSize(true);
 
-        ArrayList<Company> companyList = Company.getCompanyList();
-        companyAdapter = new CompanyAdapter(MainActivity.this, companyList.size(), companyList);
+        companyAdapter = new CompanyAdapter(MainActivity.this,  Company.getCompanyList().size(), Company.getCompanyList());
         companiesListView.setAdapter(companyAdapter);
         Company.setCompanyAdapter(companyAdapter);
         companyAdapter.notifyDataSetChanged();
-
-        /*useFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    ArrayList<Company> companiesFavoriteList = Company.getCompanyFavoriteList();
-                    companyAdapter = new CompanyAdapter(MainActivity.this, companiesFavoriteList.size(), companiesFavoriteList);
-                    companiesListView.setAdapter(companyAdapter);
-                    Company.setCompanyAdapter(companyAdapter);
-                }
-                else{
-                    ArrayList<Company> companyList = Company.getCompanyList();
-                    companyAdapter = new CompanyAdapter(MainActivity.this, Company.getCompanyList().size(), Company.getCompanyList());
-                    companiesListView.setAdapter(companyAdapter);
-                    Company.setCompanyAdapter(companyAdapter);
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-                }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //здесь изменяем companiesListToShow =
+                companyAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+        /*useFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "--1--"+Company.getCompanyFavoriteList().size(),Toast.LENGTH_LONG).show();
+
+                //companyListToShow = Company.getCompanyFavoriteList();
+//                CompanyAdapter newCompanyAdapter = new CompanyAdapter(MainActivity.this, companyListToShow.size(),companyListToShow);
+//                CompanyAdapter newCompanyAdapter = new CompanyAdapter(MainActivity.this, companyListToShow.size(),companyListToShow);
+
+  //              companiesListView.setAdapter(newCompanyAdapter);
+ //               Company.setCompanyAdapter(newCompanyAdapter);
+  //              Toast.makeText(MainActivity.this, "--2--"+Company.getCompanyFavoriteList().size(),Toast.LENGTH_LONG).show();
+                companyListToShow = Company.getCompanyFavoriteList();
                 companyAdapter.notifyDataSetChanged();
+  //              Toast.makeText(MainActivity.this, "--3--"+Company.getCompanyFavoriteList().size(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+        headView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                companyListToShow = Company.getCompanyList();
+                CompanyAdapter newCompanyAdapter = new CompanyAdapter(MainActivity.this, companyListToShow.size(),companyListToShow);
+                companiesListView.setAdapter(newCompanyAdapter);
+                Company.setCompanyAdapter(newCompanyAdapter);
+                newCompanyAdapter.notifyDataSetChanged();
             }
         });*/
+
     }
 
     private void loadData(){
@@ -95,7 +121,21 @@ public class MainActivity extends AppCompatActivity {
         Company.updateAllPrices();
     }
 
-    public void onAddToFavoriteClicked(View view) {
-
+   public void onAddToFavoriteClicked(View view) {
+        //Toast.makeText(this, String.valueOf(view.getId()),Toast.LENGTH_SHORT).show();
+     //   if(!this.favoriteIds.contains(view.getId()))
+     //       this.favoriteIds.add(view.getId());
+ //  /     else
+ //           this.favoriteIds.remove(this.favoriteIds.get(view.getId()));
     }
+    //public void onFavoriteListClicked(View view){
+        /*Toast.makeText(this, String.valueOf(Company.getCompanyFavoriteList().size())+" -Входим",Toast.LENGTH_SHORT).show();
+        companyAdapter.getItem
+        CompanyAdapter newCompanyAdapter = new CompanyAdapter(MainActivity.this, Company.getCompanyFavoriteList().size(), Company.getCompanyFavoriteList(), this.favoriteIds);
+        companiesListView.setAdapter(newCompanyAdapter);
+        Company.setCompanyAdapter(newCompanyAdapter);
+        newCompanyAdapter.notifyDataSetChanged();
+        Toast.makeText(this,"Элементов в id: " + String.valueOf(favoriteIds.size()),Toast.LENGTH_SHORT).show();
+         */
+   // }
 }
